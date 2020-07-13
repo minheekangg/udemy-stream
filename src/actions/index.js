@@ -1,11 +1,14 @@
-export const signIn = () => {
+import ActionTypes from '../actions/types';
+
+export const signIn = (userId) => {
     return {
-        type: 'SIGN_IN'
+        type: ActionTypes.SIGN_IN,
+        payload: userId
     }
 }
 
 export const signOut = () => {
     return {
-        type: 'SIGN_OUT'
+        type: ActionTypes.SIGN_OUT
     }
 }
