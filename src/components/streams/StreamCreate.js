@@ -3,16 +3,16 @@ import { Field, reduxForm } from 'redux-form';
 
 class StreamCreate extends React.Component{
 
-    renderInput({input, label}) {
+    renderInput({ input, label, meta }) {
         return <div className="field">
             <label>{label}</label>
             <input {...input}/>
+            <div>{meta.error}</div>
         </div> 
     }
 
     onSubmit(formProps) {
         //redux-form takes care of e.preventDefault(); + gets only values needed from form
-        validate(formProps)
     }
 
     render() {
@@ -38,5 +38,6 @@ const validate = formValues => {
 }
 
 export default reduxForm({
-    form: 'streamCreate'
+    form: 'streamCreate',
+    validate
 })(StreamCreate);
