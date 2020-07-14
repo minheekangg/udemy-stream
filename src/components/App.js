@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import StreamList from './streams/StreamList';
@@ -10,7 +10,7 @@ import Header from './Header';
 
 const App =  () => {
     return (
-        <Fragment>
+        <div className="ui container padded">
             <BrowserRouter>
                 <Header/>
                 <div> 
@@ -21,7 +21,7 @@ const App =  () => {
                     <Route path="/streams/show" exact component={StreamShow} />
                 </div>
             </BrowserRouter>
-        </Fragment>
+        </div>
     )
 }
 
