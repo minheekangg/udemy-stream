@@ -16,25 +16,25 @@ export const signOut = () => {
 
 export const createStream = data => async dispatch => {
     const response = await streams.post('/streams', data);
-    dispatch({ action: ActionTypes.CREATE_STREAM, payload: response.data})
+    dispatch({ type: ActionTypes.CREATE_STREAM, payload: response.data})
 }
 
 export const fetchStreams = () => async dispatch => {
     const response = await streams.get('/streams');
-    dispatch({ action: ActionTypes.FETCH_STREAMS, payload: response.data})
+    dispatch({ type: ActionTypes.FETCH_STREAMS, payload: response.data})
 }
 
 export const fetchStream = id => async dispatch => {
     const response = await streams.get('/streams/' + id);
-    dispatch({ action: ActionTypes.FETCH_STREAM, payload: response.data})
+    dispatch({ type: ActionTypes.FETCH_STREAM, payload: response.data})
 }
 
 export const editStream = (id, data) => async dispatch => {
     const response = await streams.put('/streams/' + id, data);
-    dispatch({ action: ActionTypes.EDIT_STREAM, payload: response.data})
+    dispatch({ type: ActionTypes.EDIT_STREAM, payload: response.data})
 }
 
 export const deleteStream = id => async dispatch => {
     await streams.delete('/streams' + id);
-    dispatch({ action: ActionTypes.DELETE_STREAM, payload: id})
+    dispatch({ type: ActionTypes.DELETE_STREAM, payload: id})
 }
