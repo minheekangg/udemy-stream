@@ -34,7 +34,7 @@ export const fetchStream = id => async dispatch => {
 }
 
 export const editStream = (id, data) => async dispatch => {
-    const response = await streams.put('/streams/' + id, data);
+    const response = await streams.patch('/streams/' + id, data);
     dispatch({ type: ActionTypes.EDIT_STREAM, payload: response.data});
     history.push('/'); //programmic navigation
 }
