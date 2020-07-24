@@ -1,5 +1,6 @@
 import streams from '../apis/streams';
 import ActionTypes from '../actions/types';
+import history from '../history';
 
 export const signIn = (userId) => {
     return {
@@ -18,7 +19,8 @@ export const createStream = data => async (dispatch, getState )=> {
     const { userId } = getState().auth;
     const response = await streams.post('/streams', { ...data, userId });
 
-    dispatch({ type: ActionTypes.CREATE_STREAM, payload: response.data})
+    dispatch({ type: ActionTypes.CREATE_STREAM, payload: response.data});
+    history.push('/'); //programmic navigation
 }
 
 export const fetchStreams = () => async dispatch => {
